@@ -17,6 +17,19 @@ services:
       - '3000:3000'
     volumes:
       - grafana_data:/var/lib/grafana
+  tests:
+    build: tests
+    environment:
+      - URL=http://127.0.0.1:5000/api
+      - FILE=example.py
+      - USER_NUMBER=1
+      - SPAWN_RATE=1
+      - TIME=5m
+    links:
+      - influxdb
+    depends_on:
+      - influxdb
+      - grafana
 volumes:
   grafana_data: {}
   influxdb_data: {}

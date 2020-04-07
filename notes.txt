@@ -1,2 +1,7 @@
 Нужен какой-нибудь API сервер.
 Flask?
+
+docker ps
+docker build -t=qa .
+docker run --name qa -i  qa
+sudo docker exec -it qa1 /bin/sh
